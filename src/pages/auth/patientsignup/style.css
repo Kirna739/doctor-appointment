@@ -1,0 +1,204 @@
+/* pages/patient/PatientSignup.css */
+
+/* ========== BASE STYLES (Desktop Default) ========== */
+
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--gradient-bg);
+}
+
+.signup-content {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px var(--shadowcolor);
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+  transition: 0.3s ease;
+}
+
+.signup-title {
+  margin-bottom: 2rem;
+  color: var(--error-title);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--inputcolor);
+  /* border-bottom: 1px solid; */
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  /* background-color: white; */
+}
+
+.form-group input:focus {
+  border-color: var(--btnsecondary-color);
+  box-shadow: 0 0 8px var(--shadowcolor);
+}
+
+.btn {
+  padding: 0.9rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--btnsecondary-color);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--btnhover-color);
+  transform: translateY(-3px);
+}
+
+.login-link {
+  margin-top: 1.8rem;
+  font-size: 0.95rem;
+}
+
+.login-link a {
+  color: var(--btnsecondary-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================================== */
+/* ========== LARGE MONITORS (1400px+) ========== */
+
+@media (min-width: 1400px) {
+  .signup-content {
+    max-width: 520px;
+    padding: 3.5rem;
+  }
+
+  .signup-title {
+    font-size: 2.3rem;
+  }
+
+  .form-group input {
+    font-size: 1.05rem;
+  }
+}
+
+/* ===================================================== */
+/* ========== LAPTOP (1024px–1399px) ========== */
+
+@media (max-width: 1399px) and (min-width: 1024px) {
+  .signup-content {
+    max-width: 460px;
+  }
+}
+
+/* ===================================================== */
+/* ========== TABLET (768px–1023px) ========== */
+
+@media (max-width: 1023px) {
+  .signup-container {
+    padding: 1.5rem;
+  }
+
+  .signup-content {
+    padding: 2.5rem;
+    max-width: 420px;
+  }
+
+  .signup-title {
+    font-size: 1.8rem;
+  }
+
+  .form-group input {
+    padding: 0.8rem;
+  }
+}
+
+/* ===================================================== */
+/* ========== MOBILE (Below 768px) ========== */
+
+@media (max-width: 767px) {
+  .signup-container {
+    padding: 1rem;
+  }
+
+  .signup-content {
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+  }
+
+  .signup-title {
+    font-size: 1.6rem;
+  }
+
+  .signup-form {
+    gap: 1rem;
+  }
+
+  .form-group input {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .login-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===================================================== */
+/* ========== VERY SMALL MOBILE (Below 480px) ========== */
+
+@media (max-width: 480px) {
+  .signup-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .signup-title {
+    font-size: 1.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+  }
+}

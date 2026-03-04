@@ -1,0 +1,117 @@
+/* Wrapper */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gradient-bg);
+  padding: 20px;
+}
+
+/* Card */
+.login-card {
+  background: var(--white);
+  width: 100%;
+  max-width: 400px;
+  padding: 35px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px var(--shadowcolor);
+  text-align: center;
+}
+
+/* Title */
+.login-title {
+  margin-bottom: 25px;
+  color: var(--error-title);
+}
+
+/* Form */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid var(--inputcolor);
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.login-form input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Role Buttons */
+.role-selection {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.role-btn {
+  flex: 1;
+  padding: 8px;
+  margin: 0 4px;
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+.role-btn.active {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.role-btn:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  background: var(--btnsecondary-color);
+  color: var(--white);
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: var(--btnhover-color);
+}
+
+/* Signup link */
+.signup-link {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 25px 20px;
+  }
+
+  .role-btn {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
