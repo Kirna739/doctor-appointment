@@ -25,7 +25,6 @@ const PatientSignup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match!");
       return;
@@ -38,18 +37,18 @@ const PatientSignup = () => {
 
     setError("");
 
-    // Store in localStorage
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        role: "patient",
-      })
-    );
+    // save patient
+    const user = {
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+      role: "patient",
+    };
 
-    navigate("/login");
+    localStorage.setItem("user", JSON.stringify(user));
+
+    // redirect to patient dashboard
+    navigate("/patient");
   };
 
   return (
@@ -60,6 +59,7 @@ const PatientSignup = () => {
         {error && <p className="error-message">{error}</p>}
 
         <form onSubmit={handleSubmit} className="signup-form">
+
           <div className="form-group">
             <label>Full Name</label>
             <input
@@ -111,11 +111,13 @@ const PatientSignup = () => {
           <button type="submit" className="btn btn-primary">
             Sign Up
           </button>
+
         </form>
 
         <p className="login-link">
           Already have an account? <Link to="/login">Login</Link>
         </p>
+
       </div>
     </div>
   );

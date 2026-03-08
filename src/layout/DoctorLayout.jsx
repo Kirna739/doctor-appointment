@@ -1,21 +1,19 @@
 // layouts/DoctorLayout.jsx
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Nav from '../components/common/navbar/Nav';
+import Footer from '../components/common/foooter/Footer';
 
 const DoctorLayout = () => {
+  // Get user from localStorage
+  const user = JSON.parse(localStorage.getItem("user")) || { name: "Doctor", role: "doctor" };
+
   return (
     <div className="doctor-layout">
-      <nav className="doctor-navbar">
-        <h2>Doctor Panel</h2>
-        <div className="nav-links">
-          <NavLink to="/doctor" end>Dashboard</NavLink>
-          <NavLink to="/doctor/patients">My Patients</NavLink>
-          <NavLink to="/doctor/schedule">Schedule</NavLink>
-        </div>
-      </nav>
-      
+      <Nav role="doctor" userName={user.name} />
       <main className="doctor-content">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };

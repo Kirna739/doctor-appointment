@@ -1,0 +1,90 @@
+.footer {
+  background: #2c3e50;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Logo */
+.footer-logo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Sections */
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section a {
+  display: block;
+  text-decoration: none;
+  color: #ddd;
+  margin-bottom: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-section a:hover {
+  color: #3498db;
+}
+
+/* Address */
+.footer-address {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Social Media */
+.footer-social {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-social a {
+  margin: 0 10px;
+  font-size: 22px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: #3498db;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}

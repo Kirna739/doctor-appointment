@@ -1,23 +1,19 @@
 // layouts/PatientLayout.jsx
-import { Outlet, Link, NavLink } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Nav from '../components/common/navbar/Nav';
+import Footer from '../components/common/foooter/Footer';
 
 const PatientLayout = () => {
+  // Get user from localStorage
+  const user = JSON.parse(localStorage.getItem("user")) || { name: "Patient", role: "patient" };
+
   return (
     <div className="patient-layout">
-      <nav className="patient-navbar">
-        <h2>Patient Panel</h2>
-        <div className="nav-links">
-          <Nav/>
-          <NavLink to="/patient" end>Dashboard</NavLink>
-          <NavLink to="/patient/appointments">Appointments</NavLink>
-          <NavLink to="/patient/profile">Profile</NavLink>
-        </div>
-      </nav>
-      
+      <Nav role="patient" userName={user.name} />
       <main className="patient-content">
-        <Outlet /> {/* Patient pages yahan render honge */}
+        <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };

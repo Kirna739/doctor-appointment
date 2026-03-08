@@ -1,13 +1,12 @@
-// pages/admin/AdminSignup.jsx
+// pages/admin/AdminLogin.jsx
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./style.css";
 
-const AdminSignup = () => {
+const AdminLogin = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     adminCode: "",
     password: "",
@@ -35,18 +34,9 @@ const AdminSignup = () => {
     <div className="admin-signup-wrapper">
       <div className="admin-signup-card">
 
-        <h2>Admin Signup</h2>
+        <h2>Admin Login</h2>
 
         <form onSubmit={handleSubmit} className="signup-form">
-
-          <input
-            type="text"
-            placeholder="Full Name"
-            required
-            onChange={(e) =>
-              setFormData({ ...formData, name: e.target.value })
-            }
-          />
 
           <input
             type="email"
@@ -76,13 +66,13 @@ const AdminSignup = () => {
           />
 
           <button className="signup-btn">
-            Register as Admin
+            Login as Admin
           </button>
 
         </form>
 
         <p>
-          Already have account? <Link to="/adminlogin">Login</Link>
+          Don't have account? <Link to="/adminsignup">Signup</Link>
         </p>
 
       </div>
@@ -90,4 +80,4 @@ const AdminSignup = () => {
   );
 };
 
-export default AdminSignup;
+export default AdminLogin;

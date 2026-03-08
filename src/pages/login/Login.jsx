@@ -1,6 +1,6 @@
 // pages/Login.jsx
 import { useState } from "react";
-import { useNavigate, Link, Route } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./style.css";
 
 const Login = () => {
@@ -10,9 +10,9 @@ const Login = () => {
     email: "",
     password: "",
   });
-  
-  const [role, setRole] = useState("patient"); // default role
-   console.log("user info:",credentials,"role:",role)
+
+  const [role, setRole] = useState("patient");
+
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -21,27 +21,16 @@ const Login = () => {
       role: role,
     };
 
+    // save user
     localStorage.setItem("user", JSON.stringify(user));
 
-    // Redirect based on selected role
+    // redirect based on role
     if (role === "doctor") {
       navigate("/doctor");
-    } else if (role === "admin") {
-      navigate("/admin");
     } else {
       navigate("/patient");
     }
   };
-   
-  // Route for signup{
-  const routeing = () => {
-    if (role === "patient") {
-      navigate("/signup")
-      
-    } else {
-      navigate("/doctorsignup")
-    }
-  }
 
   return (
     <div className="login-wrapper">
@@ -49,7 +38,7 @@ const Login = () => {
         <h2 className="login-title">Welcome Back</h2>
 
         <form onSubmit={handleLogin} className="login-form">
-          
+
           {/* Role Selection */}
           <div className="role-selection">
             <button
@@ -67,16 +56,9 @@ const Login = () => {
             >
               Doctor
             </button>
-
-            {/* <button
-              type="button"
-              className={role === "admin" ? "role-btn active" : "role-btn"}
-              onClick={() => setRole("admin")}
-            >
-              Admin
-            </button> */}
           </div>
 
+          {/* Email */}
           <input
             type="email"
             placeholder="Enter your email"
@@ -87,6 +69,7 @@ const Login = () => {
             }
           />
 
+          {/* Password */}
           <input
             type="password"
             placeholder="Enter your password"
@@ -98,12 +81,15 @@ const Login = () => {
           />
 
           <button type="submit" className="login-btn">
-            Login as {role.charAt(0).toUpperCase() + role.slice(1)}
+            Login as {role}
           </button>
         </form>
 
         <p className="signup-link">
-          Don’t have an account? <Link to="/signup">Sign Up</Link>
+          Don’t have an account?{" "}
+          <Link to={role === "doctor" ? "/doctorsignup" : "/signup"}>
+            Sign Up
+          </Link>
         </p>
       </div>
     </div>

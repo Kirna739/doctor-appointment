@@ -32,6 +32,11 @@ import AdminDashboard from '../pages/admin/adminDashboard/AdminDashboard';
 import AdminUsers from '../pages/admin/adminUsers/AdminUsers';
 import AdminSettings from '../pages/admin/adminSettings/AdminSettings';
 import AdminSignup from '../pages/auth/admin/AdminSignup';
+import Adminlogin from '../pages/auth/admin/Adminlogin';
+
+// Contact Page (Reusable)
+import Contactus from '../components/contactus/Contactus';
+import DoctorProfile from '../pages/docter/doctorprofile/DoctorProfile';
 
 const AppRoutes = () => {
   return (
@@ -41,14 +46,15 @@ const AppRoutes = () => {
       <Route path={ROUTES.PATIENT_SIGNUP} element={<PatientSignup />} />
       <Route path={ROUTES.DOCTOR_SIGNUP} element={<DoctorSignup />} />
       <Route path={ROUTES.ADMIN_SIGNUP} element={<AdminSignup />} />
+      <Route path={ROUTES.ADMIN_LOGIN} element={<Adminlogin />} />
       <Route path={ROUTES.UNAUTHORIZED} element={<Unauthorized />} />
-      
-      {/* Default Redirect - Patient Panel */}
+
+      {/* Default Redirect */}
       <Route path={ROUTES.HOME} element={<Navigate to={ROUTES.PATIENT} replace />} />
-      
+
       {/* Patient Panel Routes */}
-      <Route 
-        path={ROUTES.PATIENT} 
+      <Route
+        path={ROUTES.PATIENT}
         element={
           <ProtectedRoute allowedRole="patient">
             <PatientLayout />
@@ -58,13 +64,13 @@ const AppRoutes = () => {
         <Route index element={<PatientDashboard />} />
         <Route path="appointments" element={<PatientAppointments />} />
         <Route path="profile" element={<PatientProfile />} />
-        {/* Nested 404 for patient panel */}
+        <Route path="contactus" element={<Contactus />} />
         <Route path="*" element={<NotFound />} />
       </Route>
-      
+
       {/* Doctor Panel Routes */}
-      <Route 
-        path={ROUTES.DOCTOR} 
+      <Route
+        path={ROUTES.DOCTOR}
         element={
           <ProtectedRoute allowedRole="doctor">
             <DoctorLayout />
@@ -74,13 +80,14 @@ const AppRoutes = () => {
         <Route index element={<DoctorDashboard />} />
         <Route path="patients" element={<DoctorPatients />} />
         <Route path="schedule" element={<DoctorSchedule />} />
-        {/* Nested 404 for doctor panel */}
+        <Route path="profile" element={<DoctorProfile />} />
+        <Route path="contactus" element={<Contactus />} />
         <Route path="*" element={<NotFound />} />
       </Route>
-      
+
       {/* Admin Panel Routes */}
-      <Route 
-        path={ROUTES.ADMIN} 
+      <Route
+        path={ROUTES.ADMIN}
         element={
           <ProtectedRoute allowedRole="admin">
             <AdminLayout />
@@ -90,11 +97,10 @@ const AppRoutes = () => {
         <Route index element={<AdminDashboard />} />
         <Route path="users" element={<AdminUsers />} />
         <Route path="settings" element={<AdminSettings />} />
-        {/* Nested 404 for admin panel */}
         <Route path="*" element={<NotFound />} />
       </Route>
-      
-      {/* Global 404 - This should be last */}
+
+      {/* Global 404 */}
       <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
     </Routes>
   );
